@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sportz &mdash; Colorlib Sports Team Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link type="text/css" rel="stylesheet" href="../../../layout.eurosport.com/c/v8_5/global.css" />
+    <link type="text/css" rel="stylesheet" href="../../../layout.eurosport.com/c/v8_5/standing.css" /> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+
+    <link rel="stylesheet" href="css/aos.css">
+
+
+    <link rel="stylesheet" href="css/style.css">
+     <script type="text/javascript">
+  function load()  
+{  
+  // var url = "https://apifootball.com/api/?action=get_events&from=2019-04-15&to=2019-05-03&league_id=62&APIkey=1d708a5a4b2ed8afe829e1e774e2644e801fe6d5ad8a578ba50f24f04248eee4";//use any url that have json data  
+   var url="https://apifootball.com/api/?action=get_standings&league_id=62&APIkey=1d708a5a4b2ed8afe829e1e774e2644e801fe6d5ad8a578ba50f24f04248eee4";
+   var request;  
+  
+   if(window.XMLHttpRequest){    
+    request=new XMLHttpRequest();//for Chrome, mozilla etc  
+   }  
+   else if(window.ActiveXObject){    
+    request=new ActiveXObject("Microsoft.XMLHTTP");//for IE only  
+   }    
+   request.onreadystatechange  = function(){  
+      if (request.readyState == 4  )  
+      {  
+        var jsonObj = JSON.parse(request.responseText);//JSON.parse() returns JSON object  
+        var stand = document.getElementsByClassName("text");
+        var resultat = document.getElementsByClassName("standing-table__cell-value standing-table__cell-value--main");
+       /// var x = document.getElementsByClassName("example");
+       var img =document.getElementsByClassName("logo");
+       var round =document.getElementsByClassName("standing-table__cell standing-table__cell--secondary");
+       ////////////
+
+for(var i =0; i < 20; i++)
+{
+var j=0;
+while(i+1!=parseInt(jsonObj[j].overall_league_position))
+  {j++;
+}
+stand[i].innerHTML=jsonObj[j].team_name;
+resultat[i].innerHTML=jsonObj[j].overall_league_PTS;
+ var a="logo/"+jsonObj[j].team_name+".png";
+ round[1+8*i].innerHTML=jsonObj[j].home_league_payed;
+ //var img=document.createElement('img');
+ //img.src=a;
+ img[i].src=a;
+//stand[i].innerHTML="bbkl";
+
+} 
+//stand[0].innerHTML="bbkl";
+/*for(var k=0; k< resultat.length; k++)
+{
+   resultat[k].innerHTML=jsonObj[k].match_hometeam_score+":"+jsonObj[k].match_awayteam_score;
+} */
+       // document.getElementById("3").innerHTML = jsonObj[0].country_id;  
+        //document.getElementById("2").innerHTML = jsonObj[1].country_id;  
+      }  
+   }  
+   request.open("GET", url, true);  
+   request.send();  
+}
+load();
+
+</script><script>
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+    </script><script><!--
+        
+        void function(googletag, slotId, isDebug) {
+          var domain = 'fr';
+          var device = 
+    
+    (function() {
+      var mobile = window.matchMedia('(max-width: 899px)').matches && 'mobile-web';
+      var tablet = window.matchMedia('(min-width: 900px) and (max-width: 1279px)').matches && 'tablet-web';
+      var desktop = window.matchMedia('(min-width: 1280px)').matches && 'desktop';
+        
+      return mobile || tablet || desktop;
+    })();
+    
+  
+          var page_type = 'result';
+          var adunit_path = domain + '/' + device + '/' + page_type;
+          var logger = new Logger('[googleTagManagerHelper] ', isDebug);
+        
+    
+    var googletag_config = (function (device, page_type) {
+
+    var creatives = {
+
+      BANNER: {
+        name: 'banner',
+        sizes: getSizes(null, null, [320, 50])
+      },
+
+      BANNER_SPONSORSHIP: {
+        name: 'banner-sponsorship',
+        sizes: getSizes([[970, 250], [970, 90], [728, 90]], [728, 90], [320, 50])
+      },
+
+      MPU: {
+        name: 'mpu',
+        sizes: getSizes(
+          [[300, 250], [300, 600], 'fluid'],
+          [[300, 250], 'fluid'],
+          [[300, 250], 'fluid']
+        )
+      },
+
+      BETTING_BOX: {
+        name: 'betting-box',
+        sizes: getSizes(
+          [[300, 170], 'fluid'],
+          [[300, 170], 'fluid'],
+          null
+        )
+      },
+
+      INTERSTITIAL: {
+        name: 'interstitiel',
+        sizes: getSizes(['out-of-page'], ['out-of-page'], ['out-of-page'])
+      },
+
+      OUTSTREAM: {
+        name: 'outstream',
+        sizes: getSizes(
+          [[1,1], 'fluid'],
+          [[1,1], 'fluid'],
+          [[1,1], 'fluid']
+        )
+      }
+    };
+
+    var config = {
+      'desktop': {
+        'hp-main': buildBannerObj(creatives.BANNER_SPONSORSHIP, multiple(creatives.MPU, 3), creatives.BETTING_BOX, creatives.INTERSTITIAL),
+        'hp-section': buildBannerObj(creatives.BANNER_SPONSORSHIP, multiple(creatives.MPU, 3), creatives.BETTING_BOX, creatives.INTERSTITIAL),
+        'video': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.BETTING_BOX, creatives.INTERSTITIAL),
+        'livestream': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.INTERSTITIAL),
+        'article': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.BETTING_BOX, creatives.INTERSTITIAL, creatives.OUTSTREAM),
+        'live': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.BETTING_BOX, creatives.INTERSTITIAL, multiple(creatives.OUTSTREAM, 10)),
+        'result': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.BETTING_BOX, creatives.INTERSTITIAL),
+        'other': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.BETTING_BOX, creatives.INTERSTITIAL)
+      },
+      'tablet-web': {
+        'hp-main': buildBannerObj(creatives.BANNER_SPONSORSHIP, multiple(creatives.MPU, 3), creatives.BETTING_BOX, creatives.INTERSTITIAL),
+        'hp-section': buildBannerObj(creatives.BANNER_SPONSORSHIP, multiple(creatives.MPU, 3), creatives.BETTING_BOX, creatives.INTERSTITIAL),
+        'video': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.BETTING_BOX, creatives.INTERSTITIAL),
+        'livestream': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.INTERSTITIAL),
+        'article': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.BETTING_BOX, creatives.INTERSTITIAL, creatives.OUTSTREAM),
+        'live': buildBannerObj(creatives.BANNER_SPONSORSHIP, multiple(creatives.MPU, 10), creatives.BETTING_BOX, creatives.INTERSTITIAL, multiple(creatives.OUTSTREAM, 10)),
+        'result': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.INTERSTITIAL),
+        'other': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.INTERSTITIAL)
+      },
+      'mobile-web': {
+        'hp-main': buildBannerObj(creatives.BANNER_SPONSORSHIP, multiple(creatives.BANNER, 3), multiple(creatives.MPU, 3), creatives.INTERSTITIAL),
+            'hp-section': buildBannerObj(creatives.BANNER_SPONSORSHIP, multiple(creatives.BANNER, 3), multiple(creatives.MPU, 3), creatives.INTERSTITIAL),
+        'video': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.INTERSTITIAL),
+        'livestream': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.INTERSTITIAL),
+        'article': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.MPU, creatives.INTERSTITIAL, creatives.OUTSTREAM),
+        'live': buildBannerObj(creatives.BANNER_SPONSORSHIP, multiple(creatives.BANNER, 10), creatives.MPU, creatives.INTERSTITIAL, multiple(creatives.OUTSTREAM, 10)),
+        'result': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.BANNER, creatives.INTERSTITIAL),
+        'other': buildBannerObj(creatives.BANNER_SPONSORSHIP, creatives.BANNER, creatives.INTERSTITIAL)
+      }
+    };
+
+    function getSizes(desktop, tablet, mobile) {
+      return {
+        'desktop': desktop,
+        'tablet-web': tablet,
+        'mobile-web': mobile
+      }
+    }
+
+    function multiple(creative, times) {
+      return {
+        custom: creative,
+        count: times
+      }
+    }
+
+    function buildBannerObj() {
+      var banner = {};
+      var args = Array.prototype.slice.call(arguments, 0);
+
+      args.forEach(function (creativeObj) {
+
+        var obj = creativeObj,
+          count = 1;
+
+        if (creativeObj.custom) {
+          obj = creativeObj.custom;
+          count = creativeObj.count
+        }
+
+        if (banner[obj.name]) return;
+
+        banner[obj.name] = {
+          creative: obj,
+          count: count
+        };
+
+      });
+
+      return banner;
+    }
+
+    var bannerSetup = Object.keys(config).indexOf(device) !== -1 ? config[device][page_type] || {} : {};
+
+    logger.log('- - -banners setup: ', bannerSetup);
+
+    return bannerSetup
+
+  })(device, page_type);
+  
+  
+    
+      (function(googletag_config, adUnitPath, slotId, keyValues, module, exposeFnName) {
+
+        var availableSlots = {};
+
+        if (!isValidParams(arguments)) return;
+
+        var argsPerSlot = getAllSlotsParams(googletag_config);
+
+        if (argsPerSlot.length === 0) {
+          logger.error('no slots configured for the page');
+          return;
+        }
+
+        googletag.cmd.push(function () {
+          initAllSlots(argsPerSlot);
+          initKeyValues(keyValues);
+
+          if (document.cookie.indexOf('eurosportConsentAccepted=1') === -1) {
+            googletag.pubads().setRequestNonPersonalizedAds(1);
+          } else {
+            googletag.pubads().setRequestNonPersonalizedAds(0);
+          }
+
+          googletag.pubads().enableLazyLoad({
+            fetchMarginPercent: 50,
+            renderMarginPercent: 20
+          });
+          googletag.enableServices();
+          googletag.pubads().addEventListener('slotOnload', function(event) {
+            if ( event.slot.getSlotElementId().indexOf('interstitiel') !== -1) {
+              document.getElementById(event.slot.getSlotElementId()).style.position = 'static';
+            }
+          });
+          googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+            var emptyClassName = 'slot-empty';
+            var slot = document.getElementById(event.slot.getSlotElementId());
+                        var slotName = event.slot.getAdUnitPath();
+
+            if (slotName.indexOf('interstitiel') !== -1 ) return;
+
+            if ( event.isEmpty) {
+              slot.classList.add(emptyClassName);
+            } else {
+              slot.classList.remove(emptyClassName);
+            }
+          });
+        });
+
+        function getAllSlotsParams(adPlacements) {
+
+          var defineSlotArgs = [];
+
+          Object.keys(adPlacements).forEach(function (key) {
+
+            var placement = adPlacements[key];
+            var sizes = placement.creative.sizes[device];
+            if (sizes === null) return;
+
+
+            if (placement.count > 1) {
+              for (var i = 1; i <= placement.count; i++) {
+                defineSlotArgs.push({
+                  name: placement.creative.name,
+                  adUnitPath: '/' + slotId + '/' + adUnitPath + '/' + key,
+                  size: sizes,
+                  optDiv: 'ad-' + key + '-' + i + '-' + device[0]
+                });
+              }
+            } else {
+              defineSlotArgs.push({
+                name: placement.creative.name,
+                adUnitPath: '/' + slotId + '/' + adUnitPath + '/' + key,
+                size: sizes,
+                optDiv: 'ad-' + key + '-' + device[0]
+              });
+            }
+          });
+
+          return defineSlotArgs
+        }
+
+        function initAllSlots(defineSlotArgs) {
+
+          defineSlotArgs.forEach(function (defineSlotparam) {
+
+            var slot;
+
+            if (defineSlotparam.size) {
+              logger.log('- - -adplacements setup: ', defineSlotparam.adUnitPath, defineSlotparam.size, defineSlotparam.optDiv);
+
+              if (defineSlotparam.name === 'interstitiel') {
+                slot = googletag.defineOutOfPageSlot(defineSlotparam.adUnitPath, defineSlotparam.optDiv).addService(googletag.pubads());
+              } else {
+                slot = googletag.defineSlot(defineSlotparam.adUnitPath, defineSlotparam.size, defineSlotparam.optDiv).addService(googletag.pubads());
+              }
+            }
+
+            if (slot) {
+              availableSlots[defineSlotparam.optDiv] = slot;
+            }
+          });
+        }
+        
+        function initKeyValues(keyValues) {
+          for (var key in keyValues) {
+            if (keyValues.hasOwnProperty(key)) {
+              googletag.pubads().setTargeting(key, keyValues[key]);
+            }
+          }
+
+          logger.log('- - -key-values setup: ', keyValues);
+        }
+
+        function isValidParams(args) {
+          if (args.length < 3) {
+            logger.error('not all params provided: expect config, adUnitPath, slotId, keyValues[optional]');
+            return false;
+          }
+
+          return true
+        }
+
+        function refreshSlot(slotId) {
+          var slot = availableSlots[slotId];
+          if (typeof googletag.pubads !== 'undefined' && slot) {
+            slot.setTargeting('autorefresh', 'on');
+            googletag.pubads().refresh([slot])
+          }
+        }
+
+        window[module] = window[module] || {};
+        window[module][exposeFnName] = refreshSlot;
+
+      })(googletag_config, adunit_path, slotId, 
+
+    {
+    
+      sport:'22',
+    
+      recurring_event:'381',
+    
+    }
+  ,'__es_gtm_helper','refresh_ad');
+  
+    (function tagmanagerAdsDisplay(googleTagConfig, device, module, exposeFnName) {
+      var availableSlots = Object.keys(googleTagConfig).reduce(function(acc, curr) {
+        var entity = googleTagConfig[curr];
+        acc[entity.creative.name] = acc[entity.creative.name] || { totalCount: entity.count, currentCount: 1};
+        return acc;
+      }, {});
+
+      function initAdPlaceholder(options) {
+
+        var slotId = options.slotId,
+          refresh = options.refresh,
+          placementId = options.placementId,
+          el = document.querySelector("[data-adplacement-id='" + placementId + "']");
+
+        if (el === null) return;
+
+        el.className = el.getAttribute('data-class');
+        el.id = slotId;
+
+        if (refresh) {
+            window.__es_gtm_helper.refresh_ad(slotId);
+        } else {
+          googletag.cmd.push(function() {
+            googletag.display(slotId)
+          });
+        }
+      }
+
+      function injectAd(adSlotType, placementId, isNoMobile, isNoTablet, isNoDesktop) {
+        var adConfig = availableSlots[adSlotType] || null,
+          slotId;
+
+        if (adConfig === null ) return;
+
+        if (isNoMobile && device === 'mobile-web') return;
+        if (isNoTablet && device === 'tablet-web') return;
+        if (isNoDesktop && device === 'desktop') return;
+
+
+        if (adConfig.currentCount > adConfig.totalCount) {
+
+          for(var i = 0; i < adConfig.totalCount; i++) {
+            var _idx =  (adConfig.totalCount > 1 ? '-'+adConfig.currentCount : '') + '-' +device[0];
+            var _slotId = 'ad-'+adSlotType + _idx ;
+            if (document.getElementById(_slotId) === null) {
+              slotId = _slotId;
+              break;
+            }
+          }
+
+          if (slotId) {
+            initAdPlaceholder({placementId: placementId, slotId: slotId, refresh: true})
+          }
+        } else {
+
+          var adIndex  = (adConfig.totalCount > 1 ? '-'+adConfig.currentCount : '') + '-' +device[0];
+          var slotId = 'ad-'+adSlotType + adIndex;
+          adConfig.currentCount++;
+
+          initAdPlaceholder({placementId: placementId, slotId: slotId})
+        }
+
+
+
+      }
+
+      window[module] = window[module] || {};
+      window[module][exposeFnName] = injectAd;
+
+
+    })(googletag_config, device,'__es_gtm_helper','inject_ad');
+    
+    function Logger(moduleName, isDebug) {
+
+      var _noop = function () {};
+      var _isDebug = typeof isDebug === 'undefined' ? true : isDebug;
+      this.log = _noop;
+      this.error = _noop;
+
+
+      if (_isDebug) {
+        this.log = console.log.bind(console, moduleName);
+        this.error = console.error.bind(console, moduleName);
+      }
+    }
+    
+  
+        }(window.googletag, 21725585473,false);
+      --></script><script type="text/javascript" async="true">
+    var elem = document.createElement('script');
+    elem.src = '../../../quantcast.mgr.consensu.org/v13/cmp.js';
+    elem.async = true;
+    elem.type = "text/javascript";
+    var scpt = document.getElementsByTagName('script')[0];
+    scpt.parentNode.insertBefore(elem, scpt);
+    (function() {
+    var gdprAppliesGlobally = false;
+    function addFrame() {
+    if (!window.frames['__cmpLocator']) {
+    if (document.body) {
+    var body = document.body,
+    iframe = document.createElement('iframe');
+    iframe.style = 'display:none';
+    iframe.name = '__cmpLocator';
+    body.appendChild(iframe);
+    } else {
+    // In the case where this stub is located in the head,
+    // this allows us to inject the iframe more quickly than
+    // relying on DOMContentLoaded or other events.
+    setTimeout(addFrame, 5);
+    }
+    }
+    }
+    addFrame();
+    function cmpMsgHandler(event) {
+    var msgIsString = typeof event.data === "string";
+    var json;
+    if(msgIsString) {
+    json = event.data.indexOf("__cmpCall") != -1 ? JSON.parse(event.data) : {};
+    } else {
+    json = event.data;
+    }
+    if (json.__cmpCall) {
+    var i = json.__cmpCall;
+    window.__cmp(i.command, i.parameter, function(retValue, success) {
+    var returnMsg = {"__cmpReturn": {
+    "returnValue": retValue,
+    "success": success,
+    "callId": i.callId
+    }};
+    event.source.postMessage(msgIsString ?
+    JSON.stringify(returnMsg) : returnMsg, '*');
+    });
+    }
+    }
+    window.__cmp = function (c) {
+    var b = arguments;
+    if (!b.length) {
+    return __cmp.a;
+    }
+    else if (b[0] === 'ping') {
+    b[2]({"gdprAppliesGlobally": gdprAppliesGlobally,
+    "cmpLoaded": false}, true);
+    } else if (c == '__cmp')
+    return false;
+    else {
+    if (typeof __cmp.a === 'undefined') {
+    __cmp.a = [];
+    }
+    __cmp.a.push([].slice.apply(b));
+    }
+    }
+    window.__cmp.gdprAppliesGlobally = gdprAppliesGlobally;
+    window.__cmp.msgHandler = cmpMsgHandler;
+    if (window.addEventListener) {
+    window.addEventListener('message', cmpMsgHandler, false);
+    }
+    else {
+    window.attachEvent('onmessage', cmpMsgHandler);
+    }
+    })();
+    
+    window.__cmp('init', {
+          'Language': 'fr',
+    'Initial Screen Title Text': 'Le respect de votre vie privée est notre priorité',
+    'Initial Screen Reject Button Text': 'Je refuse',
+    'Initial Screen Accept Button Text': 'J\'accepte',
+    'Initial Screen Purpose Link Text': 'Afficher toutes les utilisations prévues',
+    'Purpose Screen Title Text': 'Le respect de votre vie privée est notre priorité',
+    'Purpose Screen Body Text': 'Eurosport collecte des informations au moyen de technologies telles que les cookies aux fins de mesurer et de comprendre votre utilisation du service, et de rédiger des rapports y afférents, tel qu’expliqué plus en détail ci-après (les « Mesures »). Pour en savoir plus sur ces cookies et la façon dont vous pouvez les désactiver, veuillez vous reporter à notre <a href="https://www.eurosport.fr/eurosport/politique-en-matiere-de-cookies_sto6835508/story.shtml">Politique en matière de cookies</a>. <br/><br/>En ce qui concerne les cookies et technologies similaires utilisés aux fins de proposer des publicités personnalisées, vous pouvez régler vos préférences en matière de consentement et définir la façon dont vous souhaitez que vos données soient utilisées pour les finalités énoncées dans la rubrique « Prestataires tiers » ci-dessous. Chaque finalité est accompagnée d’une description afin que vous sachiez comment nous et nos partenaires utilisons vos données. ',
+    'Purpose Screen Enable All Button Text': 'Autoriser tous les usages',
+    'Purpose Screen Vendor Link Text': 'Afficher la liste complète des partenaires',
+    'Purpose Screen Cancel Button Text': 'Annuler',
+    'Purpose Screen Save and Exit Button Text': 'Enregistrer et quitter',
+    'Vendor Screen Title Text': 'Le respect de votre vie privée est notre priorité',
+    'Vendor Screen Body Text': 'En ce qui concerne les cookies et technologies similaires utilisés aux fins de proposer des publicités personnalisées, vous pouvez régler vos préférences en matière de consentement et définir la façon dont vous souhaitez que vos données soient utilisées pour les finalités énoncées dans la rubrique « Prestataires tiers » ci-dessous. Chaque finalité est accompagnée d’une description afin que vous sachiez comment nous et nos partenaires utilisons vos données. ',
+    'Vendor Screen Accept All Button Text': 'Tout Accepter',
+    'Vendor Screen Reject All Button Text': 'Tout Refuser',
+    'Vendor Screen Purposes Link Text': 'Revenir aux Objectifs',
+    'Vendor Screen Cancel Button Text': 'Annuler',
+    'Vendor Screen Save and Exit Button Text': 'Enregistrer et quitter',
+    'Initial Screen Body Text': 'Nos partenaires et nous-mêmes traitons vos données personnelles afin de vous montrer de la publicité, comprendre notre audience et offrir une expérience utilisateur personnalisée. Vous pouvez choisir qui utilise vos données personnelles et dans quel but. Vous pouvez également faire le choix à tout moment de modifier vos réglages en matière de cookies.',
+    'Initial Screen Body Text Option': 2,
+    'Publisher Name': 'Eurosport',
+    'Publisher Logo': 'https://layout.eurosport.com/i/v8_5/logo/esp_logo_dark_2x.png',
+    'Post Consent Page': 'https://www.eurosport.com',
+    'Consent Scope': 'service',
+    'UI Layout': 'banner',
+    'No Option': false,
+    'Publisher Purpose Legitimate Interest IDs': [5],
+    'Publisher Purpose IDs': [5],
+        'Display Persistent Consent Link': false,
+          'Publisher Vendor List URL': 'https://www.eurosport.fr/.well-known/pubvendors.json',
+      'Custom Links Displayed on Initial Screen': ["[Pour en savoir plus sur les cookies, veuillez-vous reporter à notre Politique en matière de cookies.](https://www.eurosport.fr/eurosport/politique-en-matiere-de-cookies_sto6835508/story.shtml)"]
+    });
+        </script><style>
+    .qc-cmp-button {
+    background-color: #141B4D !important;
+    border-color: #141B4D !important;
+    }
+    .qc-cmp-button:hover {
+    background-color: transparent !important;
+    border-color: #141B4D !important;
+    color: #141B4D !important;
+    }
+    .qc-cmp-alt-action,
+    .qc-cmp-link {
+    color: #141B4D !important;
+    }
+    .qc-cmp-button {
+    color: #ffffff !important;
+    }
+    .qc-cmp-ui,
+    .qc-cmp-ui .qc-cmp-main-messaging,
+    .qc-cmp-ui .qc-cmp-messaging,
+    .qc-cmp-ui .qc-cmp-beta-messaging,
+    .qc-cmp-ui .qc-cmp-title,
+    .qc-cmp-ui .qc-cmp-sub-title,
+    .qc-cmp-ui .qc-cmp-purpose-info,
+    .qc-cmp-ui .qc-cmp-table,
+    .qc-cmp-ui .qc-cmp-table-header,
+    .qc-cmp-ui .qc-cmp-vendor-list,
+    .qc-cmp-ui .qc-cmp-vendor-list-title {
+    color: #3D4248 !important;
+    }
+    .qc-cmp-ui a,
+    .qc-cmp-ui .qc-cmp-alt-action {
+    color: #141B4D !important;
+    }
+    .qc-cmp-ui {
+    background-color: #ffffff !important;
+    }
+    .qc-cmp-publisher-purposes-table .qc-cmp-table-header {
+    background-color: #fafafa !important;
+    }
+    .qc-cmp-publisher-purposes-table .qc-cmp-table-row {
+    background-color: #ffffff !important;
+    }
+    .qc-cmp-toggle-status {
+    color : #97999B !important;
+    }
+    .qc-cmp-publisher-purposes-table .qc-cmp-toggle-status {
+    color : #ffffff !important;
+    }
+
+    .qc-cmp-toggle {
+    border:1px solid #ccc !important;
+    }
+
+    .qc-cmp-toggle-switch {
+    top:-1px !important;
+    border:1px solid #ccc !important;
+    }
+    .qc-cmp-toggle-off {
+    background:#ccc !important;
+    }
+
+    .qc-cmp-arrow-down {
+    background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23141B4D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 5l6 6 6-6'/%3E%3C/svg%3E") 50% no-repeat !important;
+    cursor:pointer;
+    }
+
+    .qc-cmp-purposes-header .qc-cmp-secondary-button {
+    display:none;
+    }
+
+
+
+      @media screen and (max-width: 640px) {
+
+        .qc-cmp-nav-bar-buttons-container .qc-cmp-button {
+          white-space: normal;
+          line-height: 1.1;
+          font-size: 10px;
+          margin: 10px 3px 10px 3px !important;
+        }
+
+        .qc-cmp-button.qc-cmp-save-and-exit {
+          font-size: 10px;
+        }
+
+        .qc-cmp-ui .qc-cmp-title {
+          font-size: 26px;
+        }
+
+        .qc-cmp-ui .qc-cmp-main-messaging {
+          font-size: 12px;;
+        }
+
+      }
+
+
+  </style><script type="text/javascript">
+    (function() {
+    /** CONFIGURATION START **/
+    var _sf_async_config = window._sf_async_config = (window._sf_async_config || {});
+    _sf_async_config.uid = 65899;
+    _sf_async_config.domain = 'eurosport.fr'; //CHANGE THIS TO THE ROOT DOMAIN
+    _sf_async_config.flickerControl = false;
+    _sf_async_config.useCanonical = true;
+    _sf_async_config.useCanonicalDomain = true;
+    _sf_async_config.sections = ''; // CHANGE THIS TO YOUR SECTION NAME(s)
+    _sf_async_config.authors = ''; // CHANGE THIS TO YOUR AUTHOR NAME(s)
+    _sf_async_config.autoDetect = false;
+    /** CONFIGURATION END **/
+    function loadChartbeat() {
+    var e = document.createElement('script');
+    var n = document.getElementsByTagName('script')[0];
+    e.type = 'text/javascript';
+    e.async = true;
+    e.src = '../../../static.chartbeat.com/js/chartbeat_video.js';
+    n.parentNode.insertBefore(e, n);
+    }
+    loadChartbeat();
+    })();
+    </script><script async="" src="../../../static.chartbeat.com/js/chartbeat_mab.js"></script><script>var dataLayer = [{page_videos:[]}];</script><script src="../../../assets.adobedtm.com/55c42c987178cce094489fba79ae9fa5af72b984/satelliteLib-e3fd545becb77cbb376c77ed33d18dacb7157dab.js"></script>
+  </head>
+  <body class="cols-2 withsubnav mobile_data_header">
+  
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-logo">
+          <a href="#"><img src="images/logo.png" alt="Image"></a>
+        </div>
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar absolute transparent" role="banner">
+      <div class="py-3">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-6 col-md-3">
+              <a href="#" class="text-secondary px-2 pl-0"><span class="icon-facebook"></span></a>
+              <a href="#" class="text-secondary px-2"><span class="icon-instagram"></span></a>
+              <a href="#" class="text-secondary px-2"><span class="icon-twitter"></span></a>
+              <a href="#" class="text-secondary px-2"><span class="icon-linkedin"></span></a>
+            </div>
+            <div class="col-6 col-md-9 text-right">
+              <div class="d-inline-block"><a href="#" class="text-secondary p-2 d-flex align-items-center"><span class="icon-envelope mr-3"></span> <span class="d-none d-md-block">youremail@domain.com</span></a></div>
+              <div class="d-inline-block"><a href="#" class="text-secondary p-2 d-flex align-items-center"><span class="icon-phone mr-0 mr-md-3"></span> <span class="d-none d-md-block">+1 232 3532 321</span></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="site-navigation position-relative text-right bg-black text-md-right" role="navigation">
+        <div class="container position-relative">
+          <div class="site-logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+          </div>
+
+          <div class="d-inline-block d-md-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          <ul class="site-menu js-clone-nav d-none d-md-block">
+            <li class="has-children">
+              <a href="index.html">Home</a>
+              <ul class="dropdown arrow-top">
+                <li><a href="#">Menu One</a></li>
+                <li><a href="#">Menu Two</a></li>
+                <li><a href="#">Menu Three</a></li>
+                <li class="has-children">
+                  <a href="#">Sub Menu</a>
+                  <ul class="dropdown">
+                    <li><a href="#">Menu One</a></li>
+                    <li><a href="#">Menu Two</a></li>
+                    <li><a href="#">Menu Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="has-children">
+              <a href="news.html">News</a>
+              <ul class="dropdown arrow-top">
+                <li><a href="#">Menu One</a></li>
+                <li><a href="#">Menu Two</a></li>
+                <li><a href="#">Menu Three</a></li>
+              </ul>
+            </li>
+            <li><a href="matches.html">Matches</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="active"><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  
+    <div class="site-blocks-cover overlay" style="background-image: url(images/hero_bg_3.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row align-items-center justify-content-start">
+          <div class="col-md-6 text-center text-md-left" data-aos="fade-up" data-aos-delay="400">
+            <h1 class="bg-text-line">Contact Us</h1>
+            <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maxime velit nostrum praesentium voluptatem. Mollitia perferendis dolore dolores.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--googleoff: all-->
+&lt;
+      <section>
+      <section id="content-top">
+        <div class="adtech_placement_v8_5"><div data-adplacement-id="685315264banner-sponsorship" data-ad-pos="banner-sponsorship" data-class="ad" class="ad" id="ad-banner-sponsorship-d"><script><!--
+            !!window.__es_gtm_helper.inject_ad('banner-sponsorship','685315264banner-sponsorship', !!false, !!false, !!false)
+          --></script></div><div data-adplacement-id="173934899interstitiel" data-ad-pos="interstitiel" data-class="ad" class="ad" id="ad-interstitiel-d"><script><!--
+            !!window.__es_gtm_helper.inject_ad('interstitiel','173934899interstitiel', !!false, !!false, !!false)
+          --></script></div></div>
+      </section>
+      <section id="content">
+        <section id="col-left"><div class="tab-content active" data-navtab-content-id="navtab_standing-100160" data-ajax-url="/_ajax_/standing_v8_5/standing_v8_5.zone?O2=1&amp;langueid=3&amp;dropletid=152&amp;domainid=134&amp;sportid=22&amp;revid=381&amp;mime=text%2fxml&amp;DeviceType=android&amp;standingid=100160&amp;last5=true"><table class="standing-table" xmlns:dateext="http://twilight.eurosport.com/XsltExtensions/Date"><thead><tr class="standing-table__header"><th class="standing-table__header-cell standing-table__header-cell--position">&nbsp;</th><th class="standing-table__header-cell standing-table__header-cell--team">Équipes</th><th class="standing-table__header-cell standing-table__header-cell--secondary standing-table__header-cell--last5">5 Derniers</th><th class="standing-table__header-cell standing-table__header-cell--secondary">J</th><th class="standing-table__header-cell standing-table__header-cell--secondary">G</th><th class="standing-table__header-cell standing-table__header-cell--secondary">N</th><th class="standing-table__header-cell standing-table__header-cell--secondary">P</th><th class="standing-table__header-cell standing-table__header-cell--secondary">bp</th><th class="standing-table__header-cell standing-table__header-cell--secondary">bc</th><th class="standing-table__header-cell standing-table__header-cell--secondary">+/-</th><th class="standing-table__header-cell standing-table__header-cell--main">Pts</th></tr></thead><tbody><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">1</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="10_2" href="https://www.eurosport.fr/football/equipes/liverpool/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Liverpool</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">36</td><td class="standing-table__cell standing-table__cell--secondary">28</td><td class="standing-table__cell standing-table__cell--secondary">7</td><td class="standing-table__cell standing-table__cell--secondary">1</td><td class="standing-table__cell standing-table__cell--secondary">84</td><td class="standing-table__cell standing-table__cell--secondary">20</td><td class="standing-table__cell standing-table__cell--secondary">64</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">94</span><span class="standing-table__arrow-icon standing-table__arrow-icon--up"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">2</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="384_2" href="https://www.eurosport.fr/football/equipes/manchester-city/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Manchester City</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">29</td><td class="standing-table__cell standing-table__cell--secondary">2</td><td class="standing-table__cell standing-table__cell--secondary">4</td><td class="standing-table__cell standing-table__cell--secondary">89</td><td class="standing-table__cell standing-table__cell--secondary">22</td><td class="standing-table__cell standing-table__cell--secondary">67</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">92</span><span class="standing-table__arrow-icon standing-table__arrow-icon--down"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">3</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="107_2" href="https://www.eurosport.fr/football/equipes/tottenham/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Chelsea</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">36</td><td class="standing-table__cell standing-table__cell--secondary">23</td><td class="standing-table__cell standing-table__cell--secondary">1</td><td class="standing-table__cell standing-table__cell--secondary">12</td><td class="standing-table__cell standing-table__cell--secondary">65</td><td class="standing-table__cell standing-table__cell--secondary">36</td><td class="standing-table__cell standing-table__cell--secondary">29</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">71</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">4</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="16_2" href="https://www.eurosport.fr/football/equipes/chelsea/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Tottenham Hotspur</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--draw"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">20</td><td class="standing-table__cell standing-table__cell--secondary">7</td><td class="standing-table__cell standing-table__cell--secondary">8</td><td class="standing-table__cell standing-table__cell--secondary">59</td><td class="standing-table__cell standing-table__cell--secondary">38</td><td class="standing-table__cell standing-table__cell--secondary">21</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">70</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">5</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="1_2" href="https://www.eurosport.fr/football/equipes/arsenal/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Arsenal</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">20</td><td class="standing-table__cell standing-table__cell--secondary">6</td><td class="standing-table__cell standing-table__cell--secondary">9</td><td class="standing-table__cell standing-table__cell--secondary">69</td><td class="standing-table__cell standing-table__cell--secondary">46</td><td class="standing-table__cell standing-table__cell--secondary">23</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">67</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">6</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="5_2" href="https://www.eurosport.fr/football/equipes/manchester-united/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Manchester United</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">19</td><td class="standing-table__cell standing-table__cell--secondary">7</td><td class="standing-table__cell standing-table__cell--secondary">9</td><td class="standing-table__cell standing-table__cell--secondary">63</td><td class="standing-table__cell standing-table__cell--secondary">50</td><td class="standing-table__cell standing-table__cell--secondary">13</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">66</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">7</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="417_2" href="https://www.eurosport.fr/football/equipes/wolverhampton/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Wolverhampton Wanderers</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--draw"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">14</td><td class="standing-table__cell standing-table__cell--secondary">9</td><td class="standing-table__cell standing-table__cell--secondary">12</td><td class="standing-table__cell standing-table__cell--secondary">44</td><td class="standing-table__cell standing-table__cell--secondary">43</td><td class="standing-table__cell standing-table__cell--secondary">1</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">57</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">8</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="116_2" href="https://www.eurosport.fr/football/equipes/watford/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Everton</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--draw"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">14</td><td class="standing-table__cell standing-table__cell--secondary">8</td><td class="standing-table__cell standing-table__cell--secondary">13</td><td class="standing-table__cell standing-table__cell--secondary">50</td><td class="standing-table__cell standing-table__cell--secondary">50</td><td class="standing-table__cell standing-table__cell--secondary">0</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">53</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">9</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="110_2" href="https://www.eurosport.fr/football/equipes/everton/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Leicester City</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">14</td><td class="standing-table__cell standing-table__cell--secondary">7</td><td class="standing-table__cell standing-table__cell--secondary">14</td><td class="standing-table__cell standing-table__cell--secondary">50</td><td class="standing-table__cell standing-table__cell--secondary">44</td><td class="standing-table__cell standing-table__cell--secondary">6</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">51</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">10</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="105_2" href="https://www.eurosport.fr/football/equipes/leicester-city/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Watford</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--draw"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">14</td><td class="standing-table__cell standing-table__cell--secondary">6</td><td class="standing-table__cell standing-table__cell--secondary">15</td><td class="standing-table__cell standing-table__cell--secondary">48</td><td class="standing-table__cell standing-table__cell--secondary">47</td><td class="standing-table__cell standing-table__cell--secondary">1</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">50</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">11</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="106_2" href="https://www.eurosport.fr/football/equipes/west-ham/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">West Ham United</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--draw"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">36</td><td class="standing-table__cell standing-table__cell--secondary">13</td><td class="standing-table__cell standing-table__cell--secondary">7</td><td class="standing-table__cell standing-table__cell--secondary">16</td><td class="standing-table__cell standing-table__cell--secondary">45</td><td class="standing-table__cell standing-table__cell--secondary">54</td><td class="standing-table__cell standing-table__cell--secondary">-9</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">49</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">12</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="411_2" href="https://www.eurosport.fr/football/equipes/crystal-palace/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Crystal Palace</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">12</td><td class="standing-table__cell standing-table__cell--secondary">6</td><td class="standing-table__cell standing-table__cell--secondary">17</td><td class="standing-table__cell standing-table__cell--secondary">43</td><td class="standing-table__cell standing-table__cell--secondary">48</td><td class="standing-table__cell standing-table__cell--secondary">-5</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">46</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">13</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="108_2" href="https://www.eurosport.fr/football/equipes/newcastle/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">AFC Bournemouth</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--draw"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">11</td><td class="standing-table__cell standing-table__cell--secondary">8</td><td class="standing-table__cell standing-table__cell--secondary">16</td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">44</td><td class="standing-table__cell standing-table__cell--secondary">-9</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">45</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">14</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="470_2" href="https://www.eurosport.fr/football/equipes/afc-bournemouth/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Newcastle United</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--draw"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">12</td><td class="standing-table__cell standing-table__cell--secondary">5</td><td class="standing-table__cell standing-table__cell--secondary">18</td><td class="standing-table__cell standing-table__cell--secondary">49</td><td class="standing-table__cell standing-table__cell--secondary">62</td><td class="standing-table__cell standing-table__cell--secondary">-13</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">42</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">15</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="418_2" href="https://www.eurosport.fr/football/equipes/burnley/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Burnley</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--draw"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">11</td><td class="standing-table__cell standing-table__cell--secondary">7</td><td class="standing-table__cell standing-table__cell--secondary">17</td><td class="standing-table__cell standing-table__cell--secondary">44</td><td class="standing-table__cell standing-table__cell--secondary">62</td><td class="standing-table__cell standing-table__cell--secondary">-18</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">40</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">16</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="112_2" href="https://www.eurosport.fr/football/equipes/southampton/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Southampton</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--draw"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">9</td><td class="standing-table__cell standing-table__cell--secondary">10</td><td class="standing-table__cell standing-table__cell--secondary">16</td><td class="standing-table__cell standing-table__cell--secondary">41</td><td class="standing-table__cell standing-table__cell--secondary">58</td><td class="standing-table__cell standing-table__cell--secondary">-17</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">38</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">17</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="448_2" href="https://www.eurosport.fr/football/equipes/brighton-and-hove-albion/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Brighton &amp; Hove Albion</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--draw"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">9</td><td class="standing-table__cell standing-table__cell--secondary">7</td><td class="standing-table__cell standing-table__cell--secondary">19</td><td class="standing-table__cell standing-table__cell--secondary">32</td><td class="standing-table__cell standing-table__cell--secondary">54</td><td class="standing-table__cell standing-table__cell--secondary">-22</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">36</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">18</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="449_2" href="https://www.eurosport.fr/football/equipes/cardiff-city/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Cardiff City</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">9</td><td class="standing-table__cell standing-table__cell--secondary">4</td><td class="standing-table__cell standing-table__cell--secondary">22</td><td class="standing-table__cell standing-table__cell--secondary">30</td><td class="standing-table__cell standing-table__cell--secondary">65</td><td class="standing-table__cell standing-table__cell--secondary">-35</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">31</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">19</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="260_2" href="https://www.eurosport.fr/football/equipes/fulham/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Fulham</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--won"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">35</td><td class="standing-table__cell standing-table__cell--secondary">6</td><td class="standing-table__cell standing-table__cell--secondary">5</td><td class="standing-table__cell standing-table__cell--secondary">24</td><td class="standing-table__cell standing-table__cell--secondary">33</td><td class="standing-table__cell standing-table__cell--secondary">76</td><td class="standing-table__cell standing-table__cell--secondary">-43</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">26</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr><tr class="standing-table__row"><td class="standing-table__cell standing-table__cell--position">20</td><td class="standing-table__cell standing-table__cell--team"><a class="standing-table__team-link" data-fav-entity="410_2" href="https://www.eurosport.fr/football/equipes/huddersfield-town/teamcenter.shtml"><span class="image"><img class="logo"></img></span><span class="text">Huddersfield Town</span></a></td><td class="standing-table__cell  standing-table__cell--secondary standing-table__cell--last5"><div class="standing-table__last5-container standing-table__last5-container--reverse-order"><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div><div class="standing-table__last5-icon standing-table__last5-icon--lost"></div></div></td><td class="standing-table__cell standing-table__cell--secondary">36</td><td class="standing-table__cell standing-table__cell--secondary">3</td><td class="standing-table__cell standing-table__cell--secondary">5</td><td class="standing-table__cell standing-table__cell--secondary">28</td><td class="standing-table__cell standing-table__cell--secondary">20</td><td class="standing-table__cell standing-table__cell--secondary">74</td><td class="standing-table__cell standing-table__cell--secondary">-54</td><td class="standing-table__cell standing-table__cell--main active-column"><span class="standing-table__cell-value standing-table__cell-value--main">15</span><span class="standing-table__arrow-icon standing-table__arrow-icon--right"></span></td></tr></tbody></table></div><div class="tab-content" data-navtab-content-id="navtab_standing-100161" data-ajax-url="/_ajax_/standing_v8_5/standing_v8_5.zone?O2=1&amp;langueid=3&amp;dropletid=152&amp;domainid=134&amp;sportid=22&amp;revid=381&amp;mime=text%2fxml&amp;DeviceType=android&amp;standingid=100161"></div><div class="tab-content" data-navtab-content-id="navtab_standing-100162" data-ajax-url="/_ajax_/standing_v8_5/standing_v8_5.zone?O2=1&amp;langueid=3&amp;dropletid=152&amp;domainid=134&amp;sportid=22&amp;revid=381&amp;mime=text%2fxml&amp;DeviceType=android&amp;standingid=100162"></div><div class="tab-content" data-navtab-content-id="navtab_standing-100163" data-ajax-url="/_ajax_/standing_v8_5/standing_v8_5.zone?O2=1&amp;langueid=3&amp;dropletid=152&amp;domainid=134&amp;sportid=22&amp;revid=381&amp;mime=text%2fxml&amp;DeviceType=android&amp;standingid=100163"></div><div class="tab-content" data-navtab-content-id="navtab_standing-100164" data-ajax-url="/_ajax_/standing_v8_5/standing_v8_5.zone?O2=1&amp;langueid=3&amp;dropletid=152&amp;domainid=134&amp;sportid=22&amp;revid=381&amp;mime=text%2fxml&amp;DeviceType=android&amp;standingid=100164"></div><div class="tab-content" data-navtab-content-id="navtab_standing-100165" data-ajax-url="/_ajax_/standing_v8_5/standing_v8_5.zone?O2=1&amp;langueid=3&amp;dropletid=152&amp;domainid=134&amp;sportid=22&amp;revid=381&amp;mime=text%2fxml&amp;DeviceType=android&amp;standingid=100165"></div>
+           
+        </section>
+      </section>
+      
+
+
+
+<!-- Mirrored from www.eurosport.fr/football/premier-league/standing.shtml by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Apr 2019 14:10:58 GMT -->
+</section><iframe name="__cmpLocator" style="display: none;"></iframe></body>
+
+   
+
+   
+    <footer class="site-footer border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="mb-5">
+              <h3 class="footer-heading mb-4">About Sportz</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur reprehenderit vero atque, consequatur id ratione, et non dignissimos culpa? Ut veritatis, quos illum totam quis blanditiis, minima minus odio!</p>
+            </div>
+
+            <div class="mb-5">
+              <h3 class="footer-heading mb-4">Recent Blog</h3>
+              <div class="block-25">
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <a href="#" class="d-flex">
+                      <figure class="image mr-4">
+                        <img src="images/img_1.jpg" alt="" class="img-fluid">
+                      </figure>
+                      <div class="text">
+                        <h3 class="heading font-weight-light">Lorem ipsum dolor sit amet consectetur elit</h3>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="mb-3">
+                    <a href="#" class="d-flex">
+                      <figure class="image mr-4">
+                        <img src="images/img_1.jpg" alt="" class="img-fluid">
+                      </figure>
+                      <div class="text">
+                        <h3 class="heading font-weight-light">Lorem ipsum dolor sit amet consectetur elit</h3>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="mb-3">
+                    <a href="#" class="d-flex">
+                      <figure class="image mr-4">
+                        <img src="images/img_1.jpg" alt="" class="img-fluid">
+                      </figure>
+                      <div class="text">
+                        <h3 class="heading font-weight-light">Lorem ipsum dolor sit amet consectetur elit</h3>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="row mb-5">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Quick Menu</h3>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Matches</a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Team</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Membership</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Follow Us</h3>
+
+                <div>
+                  <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="mb-5">
+              <h3 class="footer-heading mb-4">Watch Video</h3>
+
+              <div class="block-16">
+                <figure>
+                  <img src="images/img_1.jpg" alt="Image placeholder" class="img-fluid rounded">
+                  <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo"><span class="icon-play"></span></a>
+                </figure>
+              </div>
+
+            </div>
+
+            <div class="mb-5">
+              <h3 class="footer-heading mb-2">Subscribe Newsletter</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit minima minus odio.</p>
+
+              <form action="#" method="post">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="button-addon2">Send</button>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+
+          </div>
+          
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>

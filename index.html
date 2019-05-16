@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Premier Leaugue</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="jquery-3.4.0.min.js"></script>
+    <script type="text/javascript">
+      
+if ('serviceWorker' in navigator){
+  window.addEventListener('load',function() {
+  navigator.serviceWorker.register('/sw.js').then(
+    function(registration){
+    //Registration was successful
+    console.log('ServiceWorker registration successful with scope:',registration.scope)
+    },
+    function(err){
+    //registartion failed:(
+    console.log('ServiceWorker registration failed:',err)
+    })
+  })
+}
+
+    </script>
+  <link rel="manifest"  href="manifest.json">
+  <link rel="icon" type="image/png" sizes="512*512" href="images/logo.png">
+  <meta name="theme-color" content="#009688">
+  <script src='/app.js'></script>
+    <script type="text/javascript">
+
+
+match();
+news();
+var dateobj = new Date(); 
+  
+// Contents of above date object is converted 
+// into a string using toISOString() function. 
+var B = dateobj.toISOString();
+//console.log(B);
+function formatDate() {
+    var d = new Date(),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+
+/*var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = (function (myxhr) {
+return function () {
+myCallback(myxhr);
+};
+}(xhr));
+xhr.open('GET', 'http://date.jsontest.com/', true);
+fetch(xhr);
+xhr.send('');
+ function myCallback(x) {
+if (xhr.readyState < 4) {
+return; // not ready yet
+}
+if (xhr.status !== 200) {
+alert('Error!'); // the HTTP status code is not OK
+return;
+}
+var jsonObj = JSON.parse(xhr.responseText);
+// all is fine, do the work
+document.getElementById("3").innerHTML = jsonObj.time;  
+        document.getElementById("2").innerHTML = jsonObj.time;  
+alert(xhr.responseText);
+}*/
+$(document).ready( function(){
+$('#2').load();
+refresh();
+});
+ 
+function refresh()
+{
+  setTimeout( function() {
+    //  $('#2').fadeOut('slow').load().fadeIn('slow');
+    load();
+    refresh();
+  }, 200000);
+}
+//load();
+
+    </script>
+  </head>
+  <body>
+  
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-logo">
+          <a href="#"><img src="images/logo.png" alt="Image"></a>
+        </div>
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar absolute transparent" role="banner">
+      
+      <nav class="site-navigation position-relative text-right bg-black text-md-right" role="navigation">
+        <div class="container position-relative">
+          <div class="site-logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+          </div>
+
+          <div class="d-inline-block d-md-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          <ul class="site-menu js-clone-nav d-none d-md-block">
+            <li >
+              <a href="index.html">Home</a>
+              
+            </li>
+            <li >
+              <a href="news.html">News</a>
+              
+            </li>
+            <li><a href="matches.html">Matches</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="standing.html">standing</a></li>
+            <li><a href="about.html">About</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+    </header>
+    
+
+
+    <div class="slide-one-item home-slider owl-carousel">
+      <div class="site-blocks-cover overlay" style="background-image: url(images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-start">
+            <div class="col-md-6 text-center text-md-left" data-aos="fade-up" data-aos-delay="400">
+              <h1 class="bg-text-line">Premier League</h1>
+              
+            </div>
+          </div>
+        </div>
+      </div>  
+
+      <div class="site-blocks-cover overlay" style="background-image: url(images/hero_bg_4.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-start">
+            <div class="col-md-6 text-center text-md-left" data-aos="fade-up" data-aos-delay="400">
+              <h1 class="bg-text-line">Premier League</h1>
+
+            </div>
+          </div>
+        </div>
+      </div>  
+
+      <div class="site-blocks-cover overlay" style="background-image: url(images/hero_bg_3.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-start">
+            <div class="col-md-6 text-center text-md-left" data-aos="fade-up" data-aos-delay="400">
+              <h1 class="bg-text-line">Premier League</h1>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+    
+
+    
+
+    <div class="site-blocks-vs site-section bg-light">
+      <div class="container">
+
+
+
+        <div class="bg-image overlay-success rounded mb-5" style="background-image: url('images/hero_bg_1.jpg');" data-stellar-background-ratio="0.5">
+          
+          <div class="row align-items-center">
+            <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+
+              <div class="text-center text-lg-left">
+                <div class="d-block d-lg-flex align-items-center">
+                  <div class="image mx-auto mb-3 mb-lg-0 mr-lg-3">
+                    <img  alt="Image" class="img-fluid">
+                  </div>
+                  <div class="text">
+                    <h3 class="h5 mb-0 text-black"></h3>
+                    
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-12 col-lg-4 text-center mb-4 mb-lg-0">
+              <div class="d-inline-block">
+                <p class="mb-2"><small class="text-uppercase text-black font-weight-bold">Premier League </small></p>
+                <div class="bg-black py-2 px-4 mb-2 text-white d-inline-block rounded"><h5 class="resultat"></h5></div>
+                
+              </div>
+            </div>
+
+            <div class="col-md-12 col-lg-4 text-center text-lg-right">
+              <div class="">
+                <div class="d-block d-lg-flex align-items-center">
+                  <div class="image mx-auto ml-lg-3 mb-3 mb-lg-0 order-2">
+                    <img  alt="Image" class="img-fluid">
+                  </div>
+                  <div class="text order-1">
+                    <h3 class="h5 mb-0 text-black"></h3>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+                <div class="row">
+          <div class="col-md-12">
+
+            <h2 class="h6 text-uppercase text-black font-weight-bold mb-3">Latest Matches</h2>
+            <div class="site-block-tab">
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Match 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Match 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Match 3</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                  <div class="row align-items-center">
+                    <div class="col-md-12">
+
+
+                      <div class="row bg-white align-items-center ml-0 mr-0 py-4 match-entry">
+                        <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
+
+                          <div class="text-center text-lg-left">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small text-center mb-3 mb-lg-0 mr-lg-3">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text">
+                               <span class="h5 mb-0 text-black"></span>
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-4 col-lg-4 text-center mb-4 mb-lg-0">
+                          <div class="d-inline-block">
+                            <div class="bg-black py-2 px-4 mb-2 text-white d-inline-block rounded"><h5 class="resultat"></h5></div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 text-center text-lg-right">
+                          <div class="">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small ml-lg-3 mb-3 mb-lg-0 order-2">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text order-1 w-100">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- END row -->
+
+                      <div class="row bg-white align-items-center ml-0 mr-0 py-4 match-entry">
+                        <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
+
+                          <div class="text-center text-lg-left">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small text-center mb-3 mb-lg-0 mr-lg-3">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-4 col-lg-4 text-center mb-4 mb-lg-0">
+                          <div class="d-inline-block">
+                            <div class="bg-black py-2 px-4 mb-2 text-white d-inline-block rounded"><h5 class="resultat"></h5></div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 text-center text-lg-right">
+                          <div class="">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small ml-lg-3 mb-3 mb-lg-0 order-2">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text order-1 w-100">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- END row -->
+
+                      <div class="row bg-white align-items-center ml-0 mr-0 py-4 match-entry">
+                        <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
+
+                          <div class="text-center text-lg-left">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small text-center mb-3 mb-lg-0 mr-lg-3">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-4 col-lg-4 text-center mb-4 mb-lg-0">
+                          <div class="d-inline-block">
+                            <div class="bg-black py-2 px-4 mb-2 text-white d-inline-block rounded"><h5 class="resultat"></h5></div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 text-center text-lg-right">
+                          <div class="">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small ml-lg-3 mb-3 mb-lg-0 order-2">
+                                <img   alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text order-1 w-100">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- END row -->
+
+                    </div>
+
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                  <div class="row align-items-center">
+                    <div class="col-md-12">
+
+
+                      <div class="row bg-white align-items-center ml-0 mr-0 py-4 match-entry">
+                        <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
+
+                          <div class="text-center text-lg-left">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small text-center mb-3 mb-lg-0 mr-lg-3">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-4 col-lg-4 text-center mb-4 mb-lg-0">
+                          <div class="d-inline-block">
+                            <div class="bg-black py-2 px-4 mb-2 text-white d-inline-block rounded"><h5 class="resultat"></h5></div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 text-center text-lg-right">
+                          <div class="">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small ml-lg-3 mb-3 mb-lg-0 order-2">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text order-1 w-100">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- END row -->
+
+                      <div class="row bg-white align-items-center ml-0 mr-0 py-4 match-entry">
+                        <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
+
+                          <div class="text-center text-lg-left">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small text-center mb-3 mb-lg-0 mr-lg-3">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-4 col-lg-4 text-center mb-4 mb-lg-0">
+                          <div class="d-inline-block">
+                            <div class="bg-black py-2 px-4 mb-2 text-white d-inline-block rounded"><h5 class="resultat"></h5></div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 text-center text-lg-right">
+                          <div class="">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small ml-lg-3 mb-3 mb-lg-0 order-2">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text order-1 w-100">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- END row -->
+
+                      <div class="row bg-white align-items-center ml-0 mr-0 py-4 match-entry">
+                        <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
+
+                          <div class="text-center text-lg-left">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small text-center mb-3 mb-lg-0 mr-lg-3">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-4 col-lg-4 text-center mb-4 mb-lg-0">
+                          <div class="d-inline-block">
+                            <div class="bg-black py-2 px-4 mb-2 text-white d-inline-block rounded"><h5 class="resultat"></h5></div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 text-center text-lg-right">
+                          <div class="">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small ml-lg-3 mb-3 mb-lg-0 order-2">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text order-1 w-100">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- END row -->
+
+                    </div>
+
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                  <div class="row align-items-center">
+                    <div class="col-md-12">
+
+
+                      <div class="row bg-white align-items-center ml-0 mr-0 py-4 match-entry">
+                        <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
+
+                          <div class="text-center text-lg-left">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small text-center mb-3 mb-lg-0 mr-lg-3">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-4 col-lg-4 text-center mb-4 mb-lg-0">
+                          <div class="d-inline-block">
+                            <div class="bg-black py-2 px-4 mb-2 text-white d-inline-block rounded"><h5 class="resultat"></h5></div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 text-center text-lg-right">
+                          <div class="">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small ml-lg-3 mb-3 mb-lg-0 order-2">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text order-1 w-100">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                <span class="text-uppercase small country"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- END row -->
+
+                      <div class="row bg-white align-items-center ml-0 mr-0 py-4 match-entry">
+                        <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
+
+                          <div class="text-center text-lg-left">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small text-center mb-3 mb-lg-0 mr-lg-3">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-4 col-lg-4 text-center mb-4 mb-lg-0">
+                          <div class="d-inline-block">
+                            <div class="bg-black py-2 px-4 mb-2 text-white d-inline-block rounded"><h5 class="resultat"></h5></div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 text-center text-lg-right">
+                          <div class="">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small ml-lg-3 mb-3 mb-lg-0 order-2">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text order-1 w-100">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- END row -->
+
+                      <div class="row bg-white align-items-center ml-0 mr-0 py-4 match-entry">
+                        <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
+
+                          <div class="text-center text-lg-left">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small text-center mb-3 mb-lg-0 mr-lg-3">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-4 col-lg-4 text-center mb-4 mb-lg-0">
+                          <div class="d-inline-block">
+                            <div class="bg-black py-2 px-4 mb-2 text-white d-inline-block rounded"><h5 class="resultat"></h5></div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 text-center text-lg-right">
+                          <div class="">
+                            <div class="d-block d-lg-flex align-items-center">
+                              <div class="image image-small ml-lg-3 mb-3 mb-lg-0 order-2">
+                                <img  alt="Image" class="img-fluid">
+                              </div>
+                              <div class="text order-1 w-100">
+                                <h3 class="h5 mb-0 text-black"></h3>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- END row -->
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-12 text-center">
+            <h2 class="text-black">Latest News</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="post-entry">
+              <div class="image">
+                <img class="img-fluid" src="news/RTRMADP_3_SOCCER-ENGLAND-HDD-WAT.jpg" alt="Image" class="img-fluid">
+              </div>
+              <div class="text p-4">
+                <p><a class="url article" href="https://www.premierleague.com/news/1205670">
+                <h5 class="news-h2">Rapid Deulofeu can strike fear into Chelsea's defence</h5>
+                
+                <p class="mb-0">Adrian Clarke says Watford attacker visits Stamford Bridge on Sunday in fine form having been switched to a role up front</p></a></p>
+                
+               
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="post-entry">
+               <div class="image">
+                <p>
+                <img class="img-fluid"  src="news/NfaBfNyf.jpg" alt="Image" class="img-fluid">
+              </div>
+              <div class="text p-4">
+                  <p><a class="url article" href="https://www.premierleague.com/news/1205670">
+                <h5 class="news-h2">Rapid Deulofeu can strike fear into Chelsea's defence</h5>
+                
+                <p class="mb-0">Adrian Clarke says Watford attacker visits Stamford Bridge on Sunday in fine form having been switched to a role up front</p></a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="post-entry">
+              <div class="image">
+                <p>
+                <img class="img-fluid" src="news/derby-u18-players-celebrate-wide.png" alt="Image" class="img-fluid">
+              </div>
+              <div class="text p-4">
+                 <p><a class="url article" href="https://www.premierleague.com/news/1205670">
+                <h5 class="news-h2">Rapid Deulofeu can strike fear into Chelsea's defence</h5>
+                
+                <p class="mb-0">Adrian Clarke says Watford attacker visits Stamford Bridge on Sunday in fine form having been switched to a role up front</p></a></p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <footer class="site-footer border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="mb-5">
+              <h3 class="footer-heading mb-4">About Premier league</h3>
+              <p>is websid how is considered with the premier league and his match and some of his news</p>
+            </div>
+            <div class="image">
+                <img src="images/img_3_sq.jpg" alt="Image" class="img-fluid">
+              </div>
+
+            
+            
+          </div>
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="row mb-5">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Quick Menu</h3>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Matches</a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Team</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Membership</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Follow Us</h3>
+
+                <div>
+                  <a href="https://www.facebook.com/premierleague/" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                  <a href="https://twitter.com/premierleague" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                  <a href="https://www.instagram.com/premierleague/" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                  <a href="https://www.linkedin.com/company/the-premier-league" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+            
+          
+        </div>
+        
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
